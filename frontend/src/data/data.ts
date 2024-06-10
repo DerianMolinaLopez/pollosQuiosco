@@ -89,6 +89,10 @@ const diccionarioImagenes = [
     }
         
 ]
+export function encontrarImagen(id: string) {
+    const imagenObjeto = diccionarioImagenes.find(imagen => imagen?._id === id);
+    return imagenObjeto;
+}
 //6666360f228e08acd76213b8
 export default diccionarioImagenes
    

@@ -32,6 +32,18 @@ class PlatilloController {
             res.json({msg:'erorr en el servidor'}).status(500)
         }
     }
+    static async getPlatillosByID(req: Request, res: Response) {
+        try{
+             const {id} = req.params
+              const platillo = await Platillo.findById(id)
+              console.log(platillo)
+              res.send('probando')
+        }catch(error){
+            console.log(error)
+            res.json({msg:'erorr en el servidor'}).status(500)
+        }
+    }
+
 }
 
 export default PlatilloController;
