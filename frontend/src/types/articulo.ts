@@ -3,5 +3,6 @@ export type ArticuloType = {
     nombre:string,
     precio:number,
     descripcion:string,
+    cantidad:number
  
 }

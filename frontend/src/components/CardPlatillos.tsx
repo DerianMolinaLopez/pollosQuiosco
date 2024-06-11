@@ -31,6 +31,7 @@ const CardPlatillos = ({ _id, nombre, precio, descripcion, handleModal, setArtic
       nombre,
       precio,
       descripcion,
+      cantidad: 0
     
     })
     handleModal()

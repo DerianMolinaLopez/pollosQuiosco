@@ -6,6 +6,7 @@ import pollo1  from '../assets/img/pollo1.jpg'
 import { Outlet } from 'react-router-dom';
 import  { ContenidoLinkProps } from '../components/ContenidoLink';
 import ContenidoLink from '../components/ContenidoLink';
+import { Link } from 'react-router-dom';
 const Ligas : ContenidoLinkProps[] = [
     { img: refresco, texto: 'Bebidas', link: '/Bebidas' },
     { img: plato, texto: 'Platillos', link: '/Platillos' },
@@ -31,6 +32,9 @@ export default function LayoutMain() {
                     </ul>
                 </nav>
             </header>
+            <Link to={"/resumen"} className=' mx-auto p-2 bg-orange-600 rounded-lg text-white font-bold mt-10'>
+            Resumen Del Pedido
+            </Link>
             <main>
                 <Outlet />
             </main>
