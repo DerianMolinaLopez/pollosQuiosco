@@ -13,72 +13,72 @@ import verdura from '../assets/img/verdura.jpg'
 import sopFria from '../assets/img/sopaFria.jpg'
 const diccionarioImagenes = [
     {
-        _id:"666611842315a6a83bdb91b3",
+        _id:"6668c9be87050ce5c05337ca",
         imagen:pollo1
     },
     {
-        _id:"6666189e228e08acd76212c0",
+        _id:"6668c9e687050ce5c05337d0",
         imagen:pollo2
     },
     {
-        _id:"666618c5228e08acd76212c3",
+        _id:"6668ca3587050ce5c05337d5",
         imagen:pollo4
     },
     {
-        _id:"666618e2228e08acd76212c7",
+        _id:"6668ca4587050ce5c05337d8",
         imagen:pollo5
     },
     {
-        _id:"666618f6228e08acd76212ca",
+        _id:"6668caa587050ce5c05337e1",
         imagen:pollo3
     },
     ,
     {
-        _id:"66661fad228e08acd7621364",
+        _id:"6668cae187050ce5c05337e5",
         imagen:coca600
     }
     ,
     {
-        _id:"66661fca228e08acd7621368",
+        _id:"6668cb0b87050ce5c05337eb",
         imagen:coca600
     },
     {
-        _id:"66661fd1228e08acd762136b",
+        _id:"6668cb2487050ce5c05337ee",
         imagen:pepsiL
     },
     {
-        _id:"666634ef228e08acd7621395",
+        _id:"6668cb3787050ce5c05337f1",
         imagen:PepsiLata
     },
     /***papas*** */
     {
-        _id:"66663564228e08acd76213a2",
+        _id:"6668cc8487050ce5c0533802",
         imagen:papas
     }
     ,
     {
-        _id:"66663574228e08acd76213a5",
+        _id:"6668cca987050ce5c0533806",
         imagen:papas
     },
     {
-        _id:"6666358c228e08acd76213a8",
+        _id:"6668cd0887050ce5c0533814",
         imagen:flautas
     }
     ,
     {
-        _id:"6666359c228e08acd76213ab",
+        _id:"6668ccf287050ce5c0533811",
         imagen:flautas
     },
     {
-        _id:"666635ad228e08acd76213ae",
+        _id:"6668cceb87050ce5c053380e",
         imagen:flautas
     },
     {
-        _id:"666635ba228e08acd76213b1",
+        _id:"6668cd3387050ce5c0533819",
         imagen:salsa
     },
     {
-        _id:"666635d0228e08acd76213b4",
+        _id:"6668cd5d87050ce5c053381d",
         imagen:verdura
     
     },

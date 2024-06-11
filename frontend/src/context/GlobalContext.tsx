@@ -63,14 +63,14 @@ export const GlobalProvider: React.FC<GlobalProviderProps> = ({ children }) => {
           setPedido([])
         }
       }
-      const totalPedido = pedido.reduce((acc,articulo)=> acc + articulo.precio,0)
+      const totalPedido = pedido.reduce((acc, articulo) => acc + (articulo.precio * articulo.cantidad), 0);
       const reiniciarAplicacion = ():void =>{
         setPedido([])
         setNombreCliente('')
         setCategoria('Inicio')
   
       }
-
+     
 
       
 

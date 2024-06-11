@@ -9,17 +9,21 @@ import { toast } from 'react-toastify';
 import { createPedido } from '../api/Peticiones';
 import { PedidoTP } from '../types/Pedido';
 import {useNavigate} from 'react-router-dom';
+import { useState } from 'react';
 const ResumenCompra = () => {
+  const [diable,setDisable] = useState(false)
   const navigate = useNavigate();
   const { pedido,totalPedido, reiniciarPedido,
               setNombreCliente,nombreCliente,
               reiniciarAplicacion } = useGlobalContext();
   const handleEnviarPedido = async() =>{
+  
     if(nombreCliente.trim() === ''){
       console.log('aaa')
        toast.error('Agrega el nombre de quien es el pedido')
        return
     } 
+    setDisable(true)
     //construccion del objeto de pedido
     const PedidoArmado : PedidoTP = {
       Platillos :pedido,
@@ -27,11 +31,15 @@ const ResumenCompra = () => {
       mesa: nombreCliente,
       estado : 'En curso'
     }
-   const mensaje = await createPedido(PedidoArmado)
-    console.log(mensaje)
+     await createPedido(PedidoArmado)
+   
+  //  toast.success('Pedido enviado correctamente')
     toast.success('Pedido enviado correctamente')
-     navigate('/')
-     reiniciarAplicacion()
+    setTimeout(()=>{
+        navigate('/')  
+         reiniciarAplicacion()
+    },3000)
+  
   }
   return (
     <div className='max-w-screen-2xl mx-auto'>
@@ -78,6 +86,7 @@ const ResumenCompra = () => {
                   </span>
                 </p>
                      <button 
+                            disabled={diable}
                            onClick={handleEnviarPedido}
                            className='bg-orange-700 text-whitee font-semibold text-white p-3 rounded-lg'>Completar Pedido</button>
             </article>
