@@ -1,6 +1,6 @@
 import axiosCLI from "./AxiosCLI";
 import { CardPlatillosProps } from "../components/CardPlatillos";
-
+import { PedidoTP } from "../types/Pedido";
 export async function getAllArticlesbyType(tipo: string): Promise<CardPlatillosProps[] | undefined> {
     try {
         const response = await axiosCLI(`/platillos/${tipo}`);
@@ -15,4 +15,16 @@ export async function getAllArticlesbyType(tipo: string): Promise<CardPlatillosP
     } catch (error) {
         console.error(error);
     }
+}
+
+export async function createPedido(pedido:PedidoTP) :Promise<PedidoTP | undefined>{
+    try {
+        console.log(pedido)
+        const {data} = await axiosCLI.post('/pedidos',pedido);
+        console.log(data)
+        return  data;
+    } catch (error) {
+        console.error(error);
+    }
+    
 }

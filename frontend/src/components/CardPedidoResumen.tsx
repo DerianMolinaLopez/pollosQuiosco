@@ -12,7 +12,7 @@ const CardPedidoResumen = ({ articulo }: CardPedidoResumenProps) => {
     }
     return (
         <>
-        <div>
+        <div className='w-10/12 mx-auto'>
             <div className='bg-purple-900 h-10 rounded-t-lg'>
 
             </div>

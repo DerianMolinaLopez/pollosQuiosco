@@ -6,7 +6,7 @@ export interface PlatilloInter extends Document {
     imagen:string
     tipo:string
 }
-const PlatilloSchema :Schema = new Schema<PlatilloInter>({
+export const PlatilloSchema :Schema = new Schema<PlatilloInter>({
     nombre:{
         type:String,
         required:true

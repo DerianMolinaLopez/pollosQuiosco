@@ -6,3 +6,4 @@ export type ArticuloType = {
     cantidad:number
  
 }
+

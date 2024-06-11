@@ -1,11 +1,11 @@
-import React from 'react';
+
 import refresco from '../assets/img/refresco.png'
 import plato from '../assets/img/plato.png'
 import papas  from '../assets/img/papas-fritas.png'
-import pollo1  from '../assets/img/pollo1.jpg'
 import { Outlet } from 'react-router-dom';
 import  { ContenidoLinkProps } from '../components/ContenidoLink';
 import ContenidoLink from '../components/ContenidoLink';
+import { useGlobalContext } from '../hooks/useGlobalPorvider';
 import { Link } from 'react-router-dom';
 const Ligas : ContenidoLinkProps[] = [
     { img: refresco, texto: 'Bebidas', link: '/Bebidas' },
@@ -13,9 +13,10 @@ const Ligas : ContenidoLinkProps[] = [
     { img: papas, texto: 'Complementos', link: '/Complementos' }
 ];
 
+
 export default function LayoutMain() {
-
-
+    const { categoria } = useGlobalContext();
+    console.log(categoria)
     return (
         <div className='flex flex-col max-w-screen-2xl mx-auto'>
             <header>
@@ -32,7 +33,8 @@ export default function LayoutMain() {
                     </ul>
                 </nav>
             </header>
-            <Link to={"/resumen"} className=' mx-auto p-2 bg-orange-600 rounded-lg text-white font-bold mt-10'>
+            <Link to={"/resumen"}  
+                 className={`mx-auto p-2 ${categoria==='Inicio'|| ''? 'hidden':''} bg-orange-600 rounded-lg text-white font-bold mt-10`}>
             Resumen Del Pedido
             </Link>
             <main>

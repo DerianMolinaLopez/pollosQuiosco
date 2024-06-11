@@ -7,6 +7,7 @@ import ResumenCompra from './view/ResumenCompra'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import {  Route, Routes, BrowserRouter } from 'react-router-dom'
 import { GlobalProvider } from './context/GlobalContext'
+import ConfirmacionView from './view/ConfirmacionView'
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     
@@ -19,7 +20,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
             
           </Route>
           <Route path='/resumen' element= {<ResumenCompra></ResumenCompra>}></Route>
-
+          <Route path='/confirmacion' element= {<ConfirmacionView></ConfirmacionView>}></Route>
         </Routes>
       </BrowserRouter>
       </GlobalProvider>

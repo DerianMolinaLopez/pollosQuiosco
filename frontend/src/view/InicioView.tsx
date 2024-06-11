@@ -6,12 +6,12 @@ import { getAllArticlesbyType } from '../api/Peticiones';
 import { Bounce, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import CardPlatillos from '../components/CardPlatillos';
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 import { ArticuloType } from '../types/articulo';
-import { useNavigate } from 'react-router-dom';
+
 import ArticleModal from '../components/Modal';
 const InicioView = () => {
-  const navigate = useNavigate();
+
   const { categoria } = useGlobalContext();
   const [modal,setModal] = useState(false); 
   const [articulo,setArticulo] = useState<ArticuloType | null>(null)

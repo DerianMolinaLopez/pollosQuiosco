@@ -1,8 +1,5 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode, Dispatch, SetStateAction } from 'react';
-import { CardPlatillosProps } from '../components/CardPlatillos';
-import { useQuery } from 'react-query';
-import { getAllArticlesbyType } from '../api/Peticiones';
-import { toast } from 'react-toastify';
+
 import { ArticuloType } from '../types/articulo';
 // Definir el tipo para el contexto
 interface GlobalContextType {
@@ -12,6 +9,9 @@ interface GlobalContextType {
   setPedido: Dispatch<SetStateAction<ArticuloType[]>>;
   eliminarPedido:(id:string)=>void;
   reiniciarPedido:()=>void;
+  totalPedido:number;
+  nombreCliente:string;
+  setNombreCliente:Dispatch<SetStateAction<string>>;
 
 }
 
@@ -27,6 +27,7 @@ export const GlobalContext = createContext<GlobalContextType | undefined>(undefi
 export const GlobalProvider: React.FC<GlobalProviderProps> = ({ children }) => {
 
   const [pedido,setPedido] = useState<ArticuloType[]>([]);
+  const [nombreCliente, setNombreCliente] = useState<string>('');
   const [categoria, setCategoria] = useState<string>(() => {
     const savedCategoria = localStorage.getItem('categoria');
     return savedCategoria ?? 'Inicio';
@@ -36,7 +37,6 @@ export const GlobalProvider: React.FC<GlobalProviderProps> = ({ children }) => {
     // Persistir el valor de categoria en localStorage cuando cambie
     localStorage.setItem('categoria', categoria);
   }, [categoria]);
-  console.log(categoria)
 
 //verificamos si hay articulos guardados
   useEffect(()=>{
@@ -61,12 +61,17 @@ export const GlobalProvider: React.FC<GlobalProviderProps> = ({ children }) => {
           setPedido([])
         }
       }
+      const totalPedido = pedido.reduce((acc,articulo)=> acc + articulo.precio,0)
+
+
+      
 
 
   return (
     <GlobalContext.Provider value={{ categoria, setCategoria,
                                        pedido,setPedido, eliminarPedido, 
-                                       reiniciarPedido }}>
+                                       reiniciarPedido, totalPedido,
+                                       nombreCliente, setNombreCliente }}>
       {children}
     </GlobalContext.Provider>
   );
