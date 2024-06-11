@@ -17,12 +17,12 @@ export async function getAllArticlesbyType(tipo: string): Promise<CardPlatillosP
     }
 }
 
-export async function createPedido(pedido:PedidoTP) :Promise<PedidoTP | undefined>{
+export async function createPedido(pedido:PedidoTP) :Promise<PedidoTP | undefined|string>{
     try {
         console.log(pedido)
         const {data} = await axiosCLI.post('/pedidos',pedido);
         console.log(data)
-        return  data;
+        return  data.message;
     } catch (error) {
         console.error(error);
     }

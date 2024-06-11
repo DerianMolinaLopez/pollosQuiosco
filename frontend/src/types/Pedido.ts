@@ -2,7 +2,7 @@ import { ArticuloType } from "./articulo"
 export type PedidoTP ={
     Platillos:Array<ArticuloType>
     total:number
-    mesa:"string"
+    mesa:string
     estado:string
 }
 /*

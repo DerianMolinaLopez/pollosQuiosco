@@ -1,5 +1,6 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode, Dispatch, SetStateAction } from 'react';
-
+import React, { createContext,  useState, 
+                useEffect, ReactNode, Dispatch,
+                 SetStateAction } from 'react';
 import { ArticuloType } from '../types/articulo';
 // Definir el tipo para el contexto
 interface GlobalContextType {
@@ -12,6 +13,7 @@ interface GlobalContextType {
   totalPedido:number;
   nombreCliente:string;
   setNombreCliente:Dispatch<SetStateAction<string>>;
+  reiniciarAplicacion:()=>void;
 
 }
 
@@ -62,6 +64,12 @@ export const GlobalProvider: React.FC<GlobalProviderProps> = ({ children }) => {
         }
       }
       const totalPedido = pedido.reduce((acc,articulo)=> acc + articulo.precio,0)
+      const reiniciarAplicacion = ():void =>{
+        setPedido([])
+        setNombreCliente('')
+        setCategoria('Inicio')
+  
+      }
 
 
       
@@ -71,7 +79,8 @@ export const GlobalProvider: React.FC<GlobalProviderProps> = ({ children }) => {
     <GlobalContext.Provider value={{ categoria, setCategoria,
                                        pedido,setPedido, eliminarPedido, 
                                        reiniciarPedido, totalPedido,
-                                       nombreCliente, setNombreCliente }}>
+                                       nombreCliente, setNombreCliente,
+                                       reiniciarAplicacion }}>
       {children}
     </GlobalContext.Provider>
   );

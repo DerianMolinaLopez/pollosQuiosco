@@ -4,16 +4,21 @@ import platoVacio from '../assets/img/plato-vacio.png';
 import { Link } from 'react-router-dom';
 import CardPedidoResumen from '../components/CardPedidoResumen';
 import { formatNumber } from '../helpers/cantidades';
+import { Bounce, ToastContainer } from 'react-toastify';
 import { toast } from 'react-toastify';
 import { createPedido } from '../api/Peticiones';
 import { PedidoTP } from '../types/Pedido';
+import {useNavigate} from 'react-router-dom';
 const ResumenCompra = () => {
-
+  const navigate = useNavigate();
   const { pedido,totalPedido, reiniciarPedido,
-              setNombreCliente,nombreCliente } = useGlobalContext();
+              setNombreCliente,nombreCliente,
+              reiniciarAplicacion } = useGlobalContext();
   const handleEnviarPedido = async() =>{
     if(nombreCliente.trim() === ''){
-      return toast.error('Agrega el nombre de quien es el pedido')
+      console.log('aaa')
+       toast.error('Agrega el nombre de quien es el pedido')
+       return
     } 
     //construccion del objeto de pedido
     const PedidoArmado : PedidoTP = {
@@ -22,8 +27,11 @@ const ResumenCompra = () => {
       mesa: nombreCliente,
       estado : 'En curso'
     }
-   await createPedido(PedidoArmado)
-
+   const mensaje = await createPedido(PedidoArmado)
+    console.log(mensaje)
+    toast.success('Pedido enviado correctamente')
+     navigate('/')
+     reiniciarAplicacion()
   }
   return (
     <div className='max-w-screen-2xl mx-auto'>
@@ -57,7 +65,7 @@ const ResumenCompra = () => {
           <>
            <section>
             <article className='w-1/4 space-y-5 mb-5'>
-              <label htmlFor="" className='text-3xl font-bold'>¿A nombre de quien o mesa es el pedido?</label>
+              <label className='text-3xl font-bold'>¿A nombre de quien o mesa es el pedido?</label>
                <input 
                       value={nombreCliente}
                       onChange={(e ) => setNombreCliente(e.target.value)}
@@ -86,7 +94,19 @@ const ResumenCompra = () => {
         
         )}
       </article>
-      
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition={Bounce}
+        />
     </div>
   );
 }
