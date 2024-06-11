@@ -9,6 +9,11 @@
 - Express 
 - ReactQuery
 - Tailwindcss
+- 
+## Arquitectura: MVC
+
 ![image](https://github.com/DerianMolinaLopez/pollosQuiosco/assets/132833054/7e97e9f0-1891-40c0-a855-de4f57644766)
 
-## Arquitectura: MVC
+![image](https://github.com/DerianMolinaLopez/pollosQuiosco/assets/132833054/3782fe36-1a3d-46eb-862d-d1aa08821af5)
+
+![image](https://github.com/DerianMolinaLopez/pollosQuiosco/assets/132833054/57b4d79e-527d-498d-bb81-7cc5cf84ad90)
