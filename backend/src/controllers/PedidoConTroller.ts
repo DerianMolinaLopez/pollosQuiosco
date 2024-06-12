@@ -17,16 +17,32 @@ export interface PedidoInter extends Document {
 }
 */
     static async createPedido(req: Request, res: Response) {
-        const { Platillos, total, mesa, estado } = req.body;
+        const { Platillos, total, mesa } = req.body;
         const platillosParseados : PlatilloInter = Platillos
         const pedido = new Pedido({
             Platillos: platillosParseados,
             total,
             mesa,
-            estado
+            estado:"Preparando"
         });
         pedido.save()
         res.json({ message: 'Pedido creado'});
+    }
+    static async getPedidoEstado (req:Request, res:Response){
+        const {estado} = req.params;
+        const pedidos = await Pedido.find({estado});//solamente mandamos todos los pedidos que esten como "Preparando"
+        console.log(pedidos[0])
+        res.json(pedidos);
+    }
+    static async liberarComanda(req:Request, res:Response){
+        const {id} = req.body;
+        const pedido = await Pedido.findById(id);
+        if(pedido){
+            pedido.estado = "Liberado";
+            await pedido.save();
+            res.json({message:"Pedido liberado",status:'ok'})
+        }
+    
     }
 }
 

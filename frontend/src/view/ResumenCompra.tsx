@@ -44,7 +44,7 @@ const ResumenCompra = () => {
   return (
     <div className='max-w-screen-2xl mx-auto'>
       <h3 className='text-orange-500 text-6xl font-bold text-center pt-5'>Resumen del pedido</h3>
-      <div className='flex justify-between mt-5'>
+      <div className='flex justify-between mt-10'>
         <Link to="/" className='bg-orange-500 text-white rounded-lg shadow-lg p-3 font-bold'>
           Regresar
         </Link>
@@ -77,7 +77,7 @@ const ResumenCompra = () => {
                <input 
                       value={nombreCliente}
                       onChange={(e ) => setNombreCliente(e.target.value)}
-                      className='bg-gray-100 w-full p-2 rounded-lg'
+                      className='border-b-4 border-purple-900 w-full p-2 bg-gray-100 text-2xl font-bold'
                      type="text" name="" id="" />
                 <p className='text-3xl font-bold'>Total de la compra: 
                   <br />

@@ -28,3 +28,13 @@ export async function createPedido(pedido:PedidoTP) :Promise<PedidoTP | undefine
     }
     
 }
+export async function getPedidoByEstado():Promise<PedidoTP[] | undefined>{
+    const {data} = await axiosCLI.get('/pedidos/Preparando');
+
+    return data;
+    
+}
+export async function liberacion(id:string):Promise<string>{
+    const {data} = await axiosCLI.put('/pedidos/liberacion',{id});
+    return data.message;
+}
