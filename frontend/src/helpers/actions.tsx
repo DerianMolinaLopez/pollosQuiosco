@@ -16,14 +16,14 @@ export const leadingActions = () => (
 export const trailingActions = (id:string) => (
     <TrailingActions>
         <SwipeAction
-            // destructive={true}
+             
             onClick={() => {
                 liberacion(id).then((res) => {
                   console.log(res)
                   toast.success(res)
                   setTimeout(() => {
                     window.location.reload()
-                  }, 3000)
+                  }, 1000)
                   
                 })
                 //liberacion(id)
