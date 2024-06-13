@@ -12,8 +12,8 @@ import { ArticuloType } from '../types/articulo';
 import ArticleModal from '../components/Modal';
 const InicioView = () => {
 
-  const { categoria } = useGlobalContext();
-  const [modal,setModal] = useState(false); 
+  const { categoria,modal,handleModal } = useGlobalContext();
+  
   const [articulo,setArticulo] = useState<ArticuloType | null>(null)
 
   const { data: dataArticulos, isSuccess } = useQuery(
@@ -24,10 +24,7 @@ const InicioView = () => {
     }
   );
 
-  const handleModal  = ()=>{
-    setModal(!modal)
-    console.log('modal habilitado')
-  }
+
 
   return (
     <>

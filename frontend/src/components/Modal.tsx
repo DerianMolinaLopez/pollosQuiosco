@@ -54,10 +54,14 @@ const handleAgregar = () => {
   if (pedidoExistente) {
     if (contador > 0) {
       // Actualizar la cantidad del artículo existente
+      
       const pedidoActualizado = pedido.map(pedidoItem => 
         pedidoItem._id === articulo?._id ? { ...pedidoItem, cantidad: contador } : pedidoItem
       );
       setPedido(pedidoActualizado);
+      toast.info('Pedido Modificado Correctamente')
+      handleModal()
+      return
     } else {
       // Eliminar el artículo si el contador es cero
       const pedidoFiltrado = pedido.filter(pedidoItem => pedidoItem._id !== articulo?._id);

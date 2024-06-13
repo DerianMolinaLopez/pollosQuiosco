@@ -5,7 +5,7 @@ import {
 import {  trailingActions,leadingActions } from '../helpers/actions';
 import 'react-swipeable-list/dist/styles.css';
 import { formatNumber } from '../helpers/cantidades';
-import { Bounce, ToastContainer } from 'react-toastify';
+
 import { useQuery } from 'react-query';
 import { getPedidoByEstado } from '../api/Peticiones';
 

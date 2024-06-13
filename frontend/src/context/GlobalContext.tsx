@@ -14,6 +14,9 @@ interface GlobalContextType {
   nombreCliente:string;
   setNombreCliente:Dispatch<SetStateAction<string>>;
   reiniciarAplicacion:()=>void;
+  modal:boolean;
+  setModal:Dispatch<SetStateAction<boolean>>;
+  handleModal:()=>void;
 
 }
 
@@ -27,7 +30,7 @@ export const GlobalContext = createContext<GlobalContextType | undefined>(undefi
 
 // Crear el proveedor del contexto
 export const GlobalProvider: React.FC<GlobalProviderProps> = ({ children }) => {
-
+  const [modal,setModal] = useState(false); 
   const [pedido,setPedido] = useState<ArticuloType[]>([]);
   const [nombreCliente, setNombreCliente] = useState<string>('');
   const [categoria, setCategoria] = useState<string>(() => {
@@ -70,6 +73,10 @@ export const GlobalProvider: React.FC<GlobalProviderProps> = ({ children }) => {
         setCategoria('Inicio')
   
       }
+      const handleModal  = ()=>{
+        setModal(!modal)
+        console.log('modal habilitado')
+      }
      
 
       
@@ -80,7 +87,7 @@ export const GlobalProvider: React.FC<GlobalProviderProps> = ({ children }) => {
                                        pedido,setPedido, eliminarPedido, 
                                        reiniciarPedido, totalPedido,
                                        nombreCliente, setNombreCliente,
-                                       reiniciarAplicacion }}>
+                                       reiniciarAplicacion,modal,setModal,handleModal }}>
       {children}
     </GlobalContext.Provider>
   );

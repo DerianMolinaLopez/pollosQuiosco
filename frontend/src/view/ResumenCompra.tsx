@@ -10,6 +10,7 @@ import { createPedido } from '../api/Peticiones';
 import { PedidoTP } from '../types/Pedido';
 import {useNavigate} from 'react-router-dom';
 import { useState } from 'react';
+
 const ResumenCompra = () => {
   const [diable,setDisable] = useState(false)
   const navigate = useNavigate();
@@ -26,6 +27,7 @@ const ResumenCompra = () => {
     setDisable(true)
     //construccion del objeto de pedido
     const PedidoArmado : PedidoTP = {
+      _id: '',
       Platillos :pedido,
       total: totalPedido,
       mesa: nombreCliente,
@@ -71,8 +73,8 @@ const ResumenCompra = () => {
           </>
         ) : (
           <>
-           <section>
-            <article className='w-1/4 space-y-5 mb-5'>
+           <section className='w-1/4 space-y-5 mb-5 mx-36'>
+            <article  className='space-y-4'>
               <label className='text-3xl font-bold'>¿A nombre de quien o mesa es el pedido?</label>
                <input 
                       value={nombreCliente}
@@ -117,6 +119,7 @@ const ResumenCompra = () => {
         transition={Bounce}
         />
     </div>
+   
   );
 }
 
