@@ -15,3 +15,6 @@
 .altura{
     height: 50rem;
 }
+.anchura-borde{
+    border-width: 1rem;
+}

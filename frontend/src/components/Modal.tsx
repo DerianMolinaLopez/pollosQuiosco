@@ -54,7 +54,8 @@ const handleAgregar = () => {
   if (pedidoExistente) {
     if (contador > 0) {
       // Actualizar la cantidad del artículo existente
-      
+      //como la cantidad no la recibimos directamente, se la asignamos con el acumulador
+      //que hemos colocado por medio del modal
       const pedidoActualizado = pedido.map(pedidoItem => 
         pedidoItem._id === articulo?._id ? { ...pedidoItem, cantidad: contador } : pedidoItem
       );

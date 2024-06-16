@@ -46,7 +46,7 @@ const ResumenCompra = () => {
   return (
     <div className='max-w-screen-2xl mx-auto'>
       <h3 className='text-orange-500 text-6xl font-bold text-center pt-5'>Resumen del pedido</h3>
-      <div className='flex justify-between mt-10'>
+      <div className='flex justify-around mt-10'>
         <Link to="/" className='bg-orange-500 text-white rounded-lg shadow-lg p-3 font-bold'>
           Regresar
         </Link>
@@ -55,9 +55,7 @@ const ResumenCompra = () => {
           className='bg-purple-900 text-white rounded-lg shadow-lg p-3 font-bold'>
           Reiniciar pedido
         </button>
-        <Link to="/" className='bg-orange-500 text-white rounded-lg shadow-lg p-3 font-bold'>
-          Completar Pedido
-        </Link>
+      
       </div>
       
       <article className='flex flex-col space-y-3 mt-14'>
