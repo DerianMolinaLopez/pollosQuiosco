@@ -16,4 +16,7 @@
 
 ![image](https://github.com/DerianMolinaLopez/pollosQuiosco/assets/132833054/3782fe36-1a3d-46eb-862d-d1aa08821af5)
 
-![image](https://github.com/DerianMolinaLopez/pollosQuiosco/assets/132833054/57b4d79e-527d-498d-bb81-7cc5cf84ad90)
+![image](https://github.com/DerianMolinaLopez/pollosQuiosco/assets/132833054/67127f42-d6b1-404f-a9c0-e45d23300c0a)
+
+
+![image](https://github.com/DerianMolinaLopez/pollosQuiosco/assets/132833054/d2d09424-c290-41fa-af69-8d389b058886)
